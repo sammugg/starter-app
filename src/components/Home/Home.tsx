@@ -1,7 +1,11 @@
+import { setPageTitle } from 'App';
+import { useEffect } from 'react';
 import logo from '../../assets/logo.svg';
 import './Home.css';
 
 function Home() {
+  useEffect(() => setPageTitle('Home'));
+
   return (
     <div className='Home'>
       <div className='Home-header'>
