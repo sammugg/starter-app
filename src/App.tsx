@@ -1,17 +1,17 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
 } from 'react-router-dom';
 
-import Home from './components/Home/Home';
+import Home from 'components/Home/Home';
+import Layout from 'components/Layout/Layout';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/'>
+        <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/about' element={<>Nothing here yet</>} />
           <Route path='/dashboard' element={<>Nothing here yet</>} />

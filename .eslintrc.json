@@ -22,8 +22,9 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
-        "jsx-quotes": ["error", "prefer-single"]
+      "jsx-quotes": ["error", "prefer-single"],
+      "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+      "react/react-in-jsx-scope": "off"
     },
     "globals": {
         "test": false,
