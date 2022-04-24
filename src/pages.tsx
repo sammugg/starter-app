@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
-import Home from 'components/Home/Home';
+import Home from 'components/Home';
+import NewPage from 'components/NewPage';
 
 interface Page {
   isIndex?: boolean
@@ -17,8 +18,8 @@ export default [
     element: <Home />,
   },
   {
-    title: 'ExtraPage',
-    path: 'extra',
-    element: <>Nothing here yet</>,
+    title: 'New Page',
+    path: 'new-page',
+    element: <NewPage />,
   },
 ] as Page[];
