@@ -1,6 +1,8 @@
-import { setPageTitle } from 'App';
 import { useEffect } from 'react';
-import logo from '../../assets/logo.svg';
+
+import { setPageTitle } from 'App';
+import logo from 'assets/logo.svg';
+
 import './index.css';
 
 function Home() {

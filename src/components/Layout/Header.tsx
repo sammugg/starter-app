@@ -1,3 +1,4 @@
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -9,14 +10,22 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-
-import pages from 'pages';
-import { Link } from 'react-router-dom';
 import {
   useCallback,
   useState,
 } from 'react';
+import { Link } from 'react-router-dom';
+
+const pages = [
+  {
+    title: 'Home',
+    path: '',
+  },
+  {
+    title: 'New Page',
+    path: 'new-page',
+  },
+];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState<Element | null>(null);

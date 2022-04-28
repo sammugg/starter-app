@@ -1,11 +1,14 @@
+import { Provider as StoreProvider } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
 } from 'react-router-dom';
 
+import Home from 'components/Home';
 import Layout from 'components/Layout/Layout';
-import pages from 'pages';
+import NewPage from 'components/NewPage';
+import { store } from 'store';
 
 const APP_TITLE = 'Starter App';
 
@@ -15,21 +18,17 @@ export const setPageTitle = (title: string) => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          {pages.map((page) => (
-            <Route
-              key={page.title}
-              index={!!page.isIndex}
-              path={page.path}
-              element={page.element}
-            />
-          ))}
-          <Route path='*' element={<>404 Not found</>} />
-        </Route>
-      </Routes>
-    </Router>
+    <StoreProvider store={store}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='new-page' element={<NewPage />} />
+            <Route path='*' element={<>404 Not found</>} />
+          </Route>
+        </Routes>
+      </Router>
+    </StoreProvider>
   );
 }
 

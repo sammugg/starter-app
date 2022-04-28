@@ -22,9 +22,36 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "import/order": ["error", {
+        "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "groups": ["builtin", "external", "internal"]
+      }],
       "jsx-quotes": ["error", "prefer-single"],
       "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
       "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+      "import/parsers": {
+          "@typescript-eslint/parser": [
+              ".ts",
+              ".tsx"
+          ]
+      },
+      "import/resolver": {
+          "node": {
+              "paths": [ "src" ],
+              "extensions": [
+                  ".js",
+                  ".jsx",
+                  ".ts",
+                  ".tsx"
+              ]
+          }
+      }
     },
     "globals": {
         "test": false,
