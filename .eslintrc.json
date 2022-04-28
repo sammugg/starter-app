@@ -30,6 +30,7 @@
         "newlines-between": "always",
         "groups": ["builtin", "external", "internal"]
       }],
+      "import/prefer-default-export": 0,
       "jsx-quotes": ["error", "prefer-single"],
       "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
       "react/react-in-jsx-scope": "off"

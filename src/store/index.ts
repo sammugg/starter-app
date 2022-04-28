@@ -7,8 +7,12 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 
+import baconPigsumReducer from './BaconPigsum';
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    baconPigsum: baconPigsumReducer,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
