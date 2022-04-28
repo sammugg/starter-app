@@ -5,10 +5,11 @@ import {
   Paper,
   styled,
 } from '@mui/material';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setPageTitle } from 'App';
+import { AppDispatch } from 'store';
 import { getUpdatedText } from 'store/BaconPigsum/actionCreators';
 import {
   getBaconText,
@@ -25,16 +26,16 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   margin: theme.spacing(2),
+  padding: theme.spacing(2),
 }));
 
 export default function NewPage() {
   const hasError = useSelector(getHasError);
   const text = useSelector(getBaconText);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     setPageTitle('New Page');
-    dispatch(getUpdatedText());
   }, []);
 
   const handleClickRegen = useCallback(
@@ -42,20 +43,24 @@ export default function NewPage() {
     [],
   );
 
+  const paragraphs = useMemo(() => (
+    text.map((section) => (
+      <p key={`section-${Math.random()}`}>
+        {hasError && (
+          <Icon color='error'>error</Icon>
+        )}
+        {section}
+      </p>
+    ))
+  ), [text, hasError]);
+
   return (
     <Container>
       <StyledPaper elevation={3}>
         <Button onClick={handleClickRegen}>
           Click to (re)generate text.
         </Button>
-        {text.map((section) => (
-          <p key={`section-${Math.random()}`}>
-            {!hasError && (
-              <Icon color='error'>error</Icon>
-            )}
-            {section}
-          </p>
-        ))}
+        {paragraphs}
       </StyledPaper>
     </Container>
   );
